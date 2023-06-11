@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { signIn } from "next-auth/react";
 
-const page = () => {
+const Page = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
@@ -55,4 +55,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
