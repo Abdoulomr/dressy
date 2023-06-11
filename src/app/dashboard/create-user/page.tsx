@@ -106,7 +106,8 @@ const Page = () => {
 
       <form
         onSubmit={handleSubmit}
-        className="flex rounded-lg flex-wrap align-middle justify-center gap-9 gap-y-6 w-90 max-w-screen-lg mx-auto px-4 py-12 bg-white shadow-md mt-5"
+        // className="flex rounded-lg flex-wrap align-middle justify-center gap-9 gap-y-6 w-90 basis-9 max-w-screen-lg mx-auto px-4 py-12 bg-white shadow-md mt-5"
+        className="grid xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-9 w-90 max-w-screen-lg mx-auto px-8 py-12 bg-white shadow-md mt-5 xs:px-5"
       >
         <TextInput
           name="newAdminFirstName"
