@@ -100,14 +100,14 @@ const Page = () => {
 
   return (
     <>
-      <h2 className="text-slate-700 text-xl font-bold w-fit mx-auto">
-        Créer un administrateur
-      </h2>
+      <h1 className="text-slate-700 text-2xl font-bold w-fit mx-auto mb-10">
+        Ajouter un administrateur
+      </h1>
 
       <form
         onSubmit={handleSubmit}
         // className="flex rounded-lg flex-wrap align-middle justify-center gap-9 gap-y-6 w-90 basis-9 max-w-screen-lg mx-auto px-4 py-12 bg-white shadow-md mt-5"
-        className="grid xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-9 w-11/12 max-w-screen-lg mx-auto px-8 py-12 bg-white shadow-md mt-5 xs:px-5"
+        className="grid rounded-lg xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-9 w-11/12 max-w-screen-lg mx-auto px-8 py-12 bg-white shadow-md mt-5 xs:px-5"
       >
         <TextInput
           name="newAdminFirstName"
@@ -131,7 +131,7 @@ const Page = () => {
         />
 
         <SimpleBtn
-          title="Créer l'administrateur"
+          title="Ajouter l'administrateur"
           onClick={handleSubmit}
           marinTop={28}
         />
