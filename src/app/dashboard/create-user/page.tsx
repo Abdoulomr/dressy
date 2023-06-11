@@ -43,6 +43,38 @@ const Page = () => {
     }));
   };
 
+  //   const handleSubmit = async (e: FormEvent) => {
+  //   const {
+  //     newAdminFirstName,
+  //     newAdminLastName,
+  //     newAdminPhoneNumber,
+  //     newAdminEmail,
+  //     newAdminPassword,
+  //   } = newAdminData;
+
+  //   try {
+  //     const response = await fetch("/api/register", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify({
+  //         newAdminFirstName,
+  //         newAdminLastName,
+  //         newAdminPhoneNumber,
+  //         newAdminEmail,
+  //         newAdminPassword,
+  //       }),
+  //     });
+
+  //     const data = await response.json();
+  //     console.log(data);
+  //   } catch (err) {
+  //     e.preventDefault();
+  //     console.log(err);
+  //   }
+  // };
+
   const handleSubmit = async (e: FormEvent) => {
     const {
       newAdminFirstName,
@@ -51,23 +83,14 @@ const Page = () => {
       newAdminEmail,
       newAdminPassword,
     } = newAdminData;
-
     try {
-      const response = await fetch("/api/register", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          newAdminFirstName,
-          newAdminLastName,
-          newAdminPhoneNumber,
-          newAdminEmail,
-          newAdminPassword,
-        }),
+      const { data } = await axios.post("/api/register", {
+        newAdminFirstName,
+        newAdminLastName,
+        newAdminPhoneNumber,
+        newAdminEmail,
+        newAdminPassword,
       });
-
-      const data = await response.json();
       console.log(data);
     } catch (err) {
       e.preventDefault();
