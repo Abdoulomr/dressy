@@ -12,7 +12,12 @@ export default function Home() {
       <h1 className="text-6xl w-fit p-0 text-center px-6 font-black text-slate-800 mx-auto w-90 mt-20 mb-14">
         Toutes vos commandes à portée de main
       </h1>
-      <SimpleBtn title="Créer un admin" onClick={handleNavigate} marinTop={0} />
+      <SimpleBtn
+        title="Explorer"
+        bgColor="rgb(88 28 135)"
+        onClick={handleNavigate}
+        marinTop={0}
+      />
     </main>
   );
 }

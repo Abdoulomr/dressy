@@ -130,7 +130,12 @@ const Page = () => {
           labelText="Mot de passe"
         />
 
-        <SimpleBtn title="Ajouter" onClick={handleSubmit} marinTop={28} />
+        <SimpleBtn
+          title="Ajouter"
+          bgColor="rgb(5 150 105)"
+          onClick={handleSubmit}
+          marinTop={28}
+        />
       </form>
     </>
   );
