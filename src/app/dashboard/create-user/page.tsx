@@ -130,11 +130,7 @@ const Page = () => {
           labelText="Mot de passe"
         />
 
-        <SimpleBtn
-          title="Ajouter l'administrateur"
-          onClick={handleSubmit}
-          marinTop={28}
-        />
+        <SimpleBtn title="Ajouter" onClick={handleSubmit} marinTop={28} />
       </form>
     </>
   );
