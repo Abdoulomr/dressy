@@ -10,12 +10,6 @@ import axios from "axios";
 import { useForm, Controller } from "react-hook-form";
 import SubmitBtn from "@/components/inputs/SubmitBtn";
 
-interface FormData {
-  firstName: string;
-  lastName: string;
-  email: string;
-}
-
 const Page = () => {
   const { register, handleSubmit, formState, control } = useForm({});
   const { errors } = formState;
