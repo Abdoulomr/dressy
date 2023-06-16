@@ -1,7 +1,6 @@
 "use client";
-import React, { useState } from "react";
 import { signIn } from "next-auth/react";
-import { useForm, Controller } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import EmailInput from "@/components/inputs/EmailInput";
 import PasswordInput from "@/components/inputs/PasswordInput";
 import SubmitBtn from "@/components/inputs/SubmitBtn";

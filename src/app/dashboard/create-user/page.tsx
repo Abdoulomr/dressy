@@ -30,7 +30,7 @@ const Page = () => {
         newAdminEmail,
         newAdminPassword,
       });
-      console.log(data);
+      // console.log(data);
     } catch (err) {
       console.log(err);
     }
