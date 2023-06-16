@@ -5,7 +5,7 @@ import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";
 import style from "../../../styles/PhoneTelInput.module.css";
 import fr from "react-phone-number-input/locale/fr.json";
 import TextInput from "@/components/inputs/TextInput";
-import PasswordInput from "@/components/inputs/PasswordInput";
+import PasswordInput from "../../../components/inputs/PasswordInput";
 import axios from "axios";
 import { useForm, Controller } from "react-hook-form";
 import SubmitBtn from "@/components/inputs/SubmitBtn";
