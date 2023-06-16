@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  box-sizing: border-box;
+}
+
 html {
   background-image: url(../../public/bg.svg);
   background-repeat: no-repeat;
@@ -9,4 +13,10 @@ html {
 }
 option {
   padding: 20px;
+}
+
+small {
+  position: absolute;
+  bottom: -20px;
+  color: red;
 }

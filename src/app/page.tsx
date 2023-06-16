@@ -17,6 +17,7 @@ export default function Home() {
         bgColor="rgb(88 28 135)"
         onClick={handleNavigate}
         marinTop={0}
+        btnType="button"
       />
     </main>
   );

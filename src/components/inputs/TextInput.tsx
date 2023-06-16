@@ -1,27 +1,41 @@
 "use client";
-
-import React, { ChangeEvent } from "react";
-import { Value } from "react-phone-number-input";
+import { ErrorMessage } from "@hookform/error-message";
+import {
+  FieldErrors,
+  FieldValues,
+  UseFormRegister,
+} from "react-hook-form/dist/types";
 
 interface TextInputProps {
-  onChange: (newValue: string, inputName: string) => void;
   labelText: string;
   name: string;
+  register: UseFormRegister<FieldValues>;
+  errors: FieldErrors<FieldValues>;
 }
 
-const TextInput: React.FC<TextInputProps> = ({ onChange, labelText, name }) => {
-  const handleTextChange = (event: ChangeEvent<HTMLInputElement>) => {
-    onChange(event.target.value, event.target.name);
-  };
+const TextInput: React.FC<TextInputProps> = ({
+  labelText,
+  name,
+  register,
+  errors,
+}) => {
   return (
-    <section className="flex flex-col gap-2">
+    <section className="flex flex-col gap-2 relative">
       <span>{labelText}</span>
       <input
-        onChange={handleTextChange}
         type="text"
-        required={true}
+        {...register(name, {
+          required: "Ce champ est obligatoire",
+          // minLength: 2,
+          // maxLength: 40,
+        })}
+        className="min-h-[50px] border-none outline-none px-4 py-2 rounded-md bg-slate-50 hover:bg-slate-100"
+      />
+      <ErrorMessage errors={errors} name={name} as="small" />
+      <ErrorMessage
+        errors={errors}
         name={name}
-        className="min-h-[50px] border-none outline-none px-4 py-2 rounded-md bg-slate-50 hover:bg-slate-100 focus:bg-slate-200"
+        render={({ message }) => <small>{message}</small>}
       />
     </section>
   );

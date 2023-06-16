@@ -1,13 +1,18 @@
 "use client";
 import React, { useState } from "react";
 import { signIn } from "next-auth/react";
+import { useForm, Controller } from "react-hook-form";
+import EmailInput from "@/components/inputs/EmailInput";
+import PasswordInput from "@/components/inputs/PasswordInput";
+import SubmitBtn from "@/components/inputs/SubmitBtn";
 
 const Page = () => {
-  const [email, setEmail] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
+  const { register, handleSubmit, formState, control } = useForm({});
+  const { errors } = formState;
 
-  const handleLogin = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const onSubmit = async (data: any) => {
+    const { email, password } = data;
+    console.log(email, password);
     try {
       const data = await signIn("credentials", {
         redirect: false,
@@ -25,37 +30,26 @@ const Page = () => {
         Bienvenue 👋
       </h1>
       <form
-        onSubmit={handleLogin}
+        onSubmit={handleSubmit(onSubmit)}
         className="py-12 w-11/12 max-w-lg flex flex-col gap-10 justify-center align-center bg-white px-10 mt-4 shadow-md rounded-md"
       >
-        <section className="flex flex-col gap-2">
-          <span>Adresse Email</span>
-          <input
-            className="px-4 py-3 outline-none w-100 bg-slate-50 rounded-lg  focus:bg-slate-100 "
-            type="text"
-            required
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            autoComplete="current-password"
-            // placeholder=""
-          />
-        </section>
-        <section className="flex flex-col gap-2">
-          <span>Mot de passe</span>
-          <input
-            className="px-4 py-3 outline-none w-100 bg-slate-50 rounded-lg   focus:bg-slate-100  "
-            type="password"
-            required
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            // placeholder=""
-            autoComplete="current-password"
-          />
-        </section>
-
-        <button className="bg-slate-800 py-3 text-white hover:bg-slate-700 rounded-md">
-          Se connecter
-        </button>
+        <EmailInput
+          labelText="Adresse Email"
+          name="email"
+          register={register}
+          errors={errors}
+        />
+        <PasswordInput
+          labelText="Mot de passe"
+          name="password"
+          register={register}
+          errors={errors}
+        />
+        <SubmitBtn
+          valueTitle="Se connecter"
+          marinTop={0}
+          bgColor="rgb(30 41 59)"
+        />
       </form>
     </div>
   );

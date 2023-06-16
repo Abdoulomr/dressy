@@ -1,33 +1,52 @@
 "use client";
 
+import { ErrorMessage } from "@hookform/error-message";
 import React, { ChangeEvent } from "react";
-import { Value } from "react-phone-number-input";
+import {
+  FieldErrors,
+  FieldValues,
+  UseFormRegister,
+} from "react-hook-form/dist/types";
 
 interface PasswordInputProps {
-  onChange: (newValue: string, inputName: string) => void;
   labelText: string;
   name: string;
+  register: UseFormRegister<FieldValues>;
+  errors: FieldErrors<FieldValues>;
 }
 
 const PasswordInput: React.FC<PasswordInputProps> = ({
-  onChange,
   labelText,
   name,
+  register,
+  errors,
 }) => {
-  const handlePasswordChange = (event: ChangeEvent<HTMLInputElement>) => {
-    onChange(event.target.value, event.target.name);
-  };
   return (
-    <section className="flex flex-col gap-2">
+    <section className="flex flex-col gap-2 relative">
       <span>{labelText}</span>
       <input
-        onChange={handlePasswordChange}
+        {...register(name, {
+          required: "Ce champ est obligatoire",
+          minLength: {
+            value: 8,
+            message: "Le mot de passe doit faire 8 carractères ou plus",
+          },
+          maxLength: {
+            value: 30,
+            message: "Le mot de passe ne doit pas dépasser 30 caractères",
+          },
+        })}
         autoComplete="current-password"
-        required={true}
         type="password"
         name={name}
-        className=" min-h-[50px] border-none outline-none px-4 py-2 rounded-md bg-slate-50 hover:bg-slate-100 focus:bg-slate-200"
-      ></input>
+        className=" min-h-[50px] border-none outline-none px-4 py-2 rounded-md bg-slate-50 hover:bg-slate-100 "
+      />
+      <ErrorMessage errors={errors} name={name} as="small" />
+      <ErrorMessage
+        errors={errors}
+        name={name}
+        render={({ message }) => <small>{message}</small>}
+      />
     </section>
   );
 };
