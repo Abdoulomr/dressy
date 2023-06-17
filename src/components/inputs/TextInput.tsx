@@ -1,4 +1,3 @@
-"use client";
 import { ErrorMessage } from "@hookform/error-message";
 import {
   FieldErrors,

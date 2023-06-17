@@ -1,5 +1,3 @@
-import React, { FormEvent } from "react";
-
 interface SimpleBtnProps {
   valueTitle: string;
   bgColor: string;
